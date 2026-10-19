@@ -1,0 +1,3 @@
+# 로컬 연습 서버가 만드는 가짜 DB
+dev/mock-db.json
+node_modules/

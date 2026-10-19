@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>망가진 단말기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/terminal.css">
+</head>
+<body>
+<div class="term-root" id="termRoot">
+
+    <!-- 상단 줄: 주파수·코드 / 효과음 -->
+    <div class="term-top">
+        <span class="term-channel" id="topChannel">CH ---.-- MHz</span>
+        <div class="term-top-actions">
+            <button class="tag" id="soundBtn" type="button">
+                <i class="bi bi-volume-up-fill"></i><span> 효과음 ON</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 연결 상태 알림 -->
+    <div class="term-banner hidden" id="banner"></div>
+
+    <!-- 신호를 찾을 수 없음 -->
+    <section class="scene" id="sceneLost">
+        <div class="scene-center">
+            <p class="lost-text">신호를 찾을 수 없습니다.</p>
+            <p class="lost-sub" id="lostSub">이미 닫혔거나 존재하지 않는 단말기입니다.</p>
+            <a class="btn lost-btn" href="index.html"><i class="bi bi-arrow-left"></i> 로비로 돌아간다</a>
+        </div>
+    </section>
+
+    <!-- 대기실 (방 만든 사람) -->
+    <section class="scene" id="sceneWait">
+        <div class="scene-center">
+            <div class="wait-channel" id="waitChannel"></div>
+            <div class="wait-code" id="waitCode">----</div>
+            <button class="t-btn" id="copyBtn" type="button"><i class="bi bi-clipboard"></i> 코드 복사</button>
+            <p class="wait-hint">이 코드를 상대방에게 전달하세요.</p>
+
+            <div class="wait-slots">
+                <div class="wait-slot" id="mySlot"></div>
+                <div class="wait-slot" id="partnerSlot"></div>
+            </div>
+
+            <div class="wait-status" id="waitStatus"><span class="wait-dot"></span> 신호를 기다리는 중...</div>
+        </div>
+    </section>
+
+    <!-- 인트로 -->
+    <section class="scene scene-intro" id="sceneIntro">
+        <button class="intro-skip" id="skipBtn" type="button">건너뛰기 <i class="bi bi-chevron-double-right"></i></button>
+        <div class="scene-center">
+            <div class="intro-card" id="introCard"></div>
+            <div class="intro-lines" id="introLines"></div>
+        </div>
+    </section>
+
+    <!-- 생자: 장소·물건 입력 / 망자: 기다림 -->
+    <section class="scene" id="sceneSetup">
+        <div class="scene-center">
+            <form class="setup-form hidden" id="placeForm">
+                <p class="setup-prompt">지금 당신은 어디에 있습니까?</p>
+                <input class="setup-input" id="placeInput" maxlength="30" autocomplete="off" placeholder="예: 폐쇄된 3층 통신실">
+                <button class="t-btn" type="submit">대답한다</button>
+            </form>
+
+            <form class="setup-form hidden" id="thingsForm">
+                <p class="setup-prompt">당신의 주변엔 무엇이 있습니까?</p>
+                <input class="setup-input" id="thing0" maxlength="12" autocomplete="off" placeholder="예: 머그컵">
+                <input class="setup-input" id="thing1" maxlength="12" autocomplete="off" placeholder="최소 1개 작성">
+                <input class="setup-input" id="thing2" maxlength="12" autocomplete="off" placeholder="나머지는 비워도 됩니다">
+                <button class="t-btn" type="submit">대답한다</button>
+            </form>
+
+            <div class="hidden" id="deadWait">
+                <p class="setup-wait">당신은 당신의 이름을 부르는 사람을 찾고 있습니다...</p>
+                <p class="setup-sub">상대방이 배경을 설정하고 있습니다. 잠시만 기다려주세요.</p>
+            </div>
+            <p class="setup-wait hidden" id="livingWait">신호가 이어지기를 기다립니다...</p>
+        </div>
+    </section>
+
+    <!-- 단말기 -->
+    <section class="scene" id="sceneTerminal">
+        <div class="term-cards" id="termCards"></div>
+
+        <p class="term-scene-note hidden" id="sceneNote"></p>
+
+        <div class="device" id="device">
+            <div class="grille"><i></i><i></i><i></i></div>
+            <div class="lcd" id="lcd">
+                <div class="lcd-top"><span id="lcdLeft">Q --/10</span><span id="lcdRight"></span></div>
+                <div class="lcd-main" id="lcdMain"></div>
+            </div>
+            <p class="amb" id="amb"></p>
+            <div class="ctl" id="ctl"></div>
+            <p class="ctl-error" id="ctlError"></p>
+        </div>
+    </section>
+
+    <!-- 통신 기록 -->
+    <section class="scene" id="sceneResult">
+        <div class="result" id="result"></div>
+        <div class="result-actions">
+            <button class="ctl-btn pri" id="shareBtn" type="button"><i class="bi bi-share"></i> 공유하기</button>
+            <button class="ctl-btn" id="saveBtn" type="button"><i class="bi bi-download"></i> 이미지 저장</button>
+        </div>
+        <p class="result-share-note" id="shareNote"></p>
+
+        <!-- 남겨진 기록에 남기기 -->
+        <div class="result-wall" id="wallBox"></div>
+
+        <!-- 후기 -->
+        <form class="result-review" id="reviewForm" autocomplete="off">
+            <label class="ctl-note" for="reviewInput">남겨 주신 후기는 제작자에게만 전해집니다.</label>
+            <textarea class="ctl-input" id="reviewInput" rows="4" maxlength="2000"></textarea>
+            <button class="ctl-btn" id="reviewBtn" type="submit" disabled><i class="bi bi-send"></i> 후기 남기기</button>
+            <p class="ctl-note hidden" id="reviewNote"></p>
+        </form>
+        <a class="t-btn result-back" id="backBtn" href="index.html"><i class="bi bi-arrow-left"></i> 로비로 돌아간다</a>
+    </section>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/terminal.js"></script>
+</body>
+</html>

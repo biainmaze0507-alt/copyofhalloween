@@ -1,0 +1,537 @@
+/* 헤더 액션 */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+a.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+}
+
+.tag:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+/* 숨김 */
+.hidden {
+    display: none !important;
+}
+
+/* 공지 */
+.lobby-notice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .8rem;
+    color: var(--mute);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    line-height: 1.6;
+    justify-content: center;   /* 아이콘 + 글자 묶음을 가운데로 */
+    text-align: center;        /* 휴대폰에서 두 줄로 넘어가도 가운데 */
+}
+
+.lobby-notice i {
+    color: var(--lcd);
+}
+
+/* 카드 밖 안내 문구 */
+.lobby-note {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .75rem;
+    color: var(--mute);
+    margin: 0 0 20px 2px;
+}
+
+/* 로비 컨테이너 */
+.lobby {
+    max-width: 640px;
+    margin: 40px auto;
+}
+
+/* 복원 배너 */
+.restore-banner {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: .8rem;
+    color: var(--lcd);
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+/* 신분증 카드 */
+.id-card {
+    position: relative;
+    background: #fff;
+    color: #111;
+    border-radius: 10px;
+    border: 3px solid #000;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: transform .3s, filter .3s;
+}
+
+/* 떠난 요원의 낡은 신분증 - 흑백, 기울어짐, 찢긴 가장자리 */
+.id-card.worn {
+    filter: grayscale(1) contrast(1.05);
+    transform: rotate(-1.6deg);
+    border-color: transparent;
+    clip-path: polygon(0 3%, 7% 0, 22% 2%, 38% 0, 61% 3%, 74% 0, 100% 2%, 98% 30%, 100% 52%, 96% 61%, 100% 74%, 88% 79%, 84% 100%, 60% 96%, 41% 100%, 26% 95%, 9% 100%, 2% 84%, 0 60%, 3% 41%);
+    background:
+        linear-gradient(118deg, transparent 46%, rgba(0, 0, 0, .18) 46.4%, transparent 47.2%),
+        linear-gradient(8deg, transparent 60%, rgba(0, 0, 0, .12) 60.3%, transparent 61%),
+        #d9d9d4;
+}
+
+/* 낡은 신분증 - 바랜 종이가 비치도록 칸 바탕을 투명하게 */
+.id-card.worn .id-field-input,
+.id-card.worn .id-card-photo {
+    background-color: transparent;
+}
+
+.id-card.worn .id-field-input {
+    border-bottom-color: #8a8a85;
+}
+
+.id-card.worn .id-card-footer {
+    border-top-color: #b5b5af;
+}
+
+/* 검은 얼룩 (떠난 요원일 때만) */
+.stain {
+    position: absolute;
+    background: #050505;
+    pointer-events: none;
+    display: none;
+}
+
+.id-card.worn .stain {
+    display: block;
+}
+
+.stain.a { width: 92px; height: 64px; right: -18px; bottom: -10px; border-radius: 58% 42% 30% 70% / 60% 35% 65% 40%; }
+.stain.b { width: 26px; height: 22px; right: 70px; bottom: 18px; border-radius: 50% 60% 40% 55%; }
+.stain.c { width: 9px; height: 9px; right: 104px; bottom: 44px; border-radius: 50%; }
+.stain.d { width: 38px; height: 18px; left: -8px; top: 34px; border-radius: 40% 60% 70% 30%; opacity: .85; }
+.stain.e { width: 5px; height: 5px; left: 40px; top: 58px; border-radius: 50%; }
+
+.id-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 14px 18px 10px;
+    border-bottom: 2px solid #222;
+}
+
+.id-card-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #111;
+    letter-spacing: .03em;
+}
+
+.id-card-body {
+    display: flex;
+    gap: 18px;
+    padding: 16px 18px;
+}
+
+.id-card-photo {
+    position: relative;
+    width: 120px;
+    height: 140px;
+    min-width: 120px;
+    border: 2px solid #000;
+    background: #f0f0f0;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.id-card-photo:hover {
+    border-color: #444;
+}
+
+.id-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.id-card-photo-placeholder {
+    color: #999;
+    font-size: 1.8rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+}
+
+.id-card-photo-placeholder small {
+    font-size: .65rem;
+}
+
+/* 카드 필드 */
+.id-card-fields {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.id-field-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: .72rem;
+    color: #333;
+    letter-spacing: .1em;
+    margin-bottom: 4px;
+}
+
+.id-field-input {
+    width: 100%;
+    background: #fff;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0;
+    color: #111;
+    padding: 6px 2px;
+    font-size: .95rem;
+    font-family: 'Pretendard', sans-serif;
+    outline: none;
+    transition: border-color .2s;
+}
+
+.id-field-input:focus {
+    border-bottom-color: #555;
+}
+
+.id-field-row {
+    display: flex;
+    gap: 12px;
+}
+
+.id-field-age {
+    flex: 0 0 100px;
+}
+
+.id-field-birthday {
+    flex: 1;
+}
+
+/* 카드 푸터 */
+.id-card-footer {
+    padding: 10px 18px 14px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+.barcode {
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+    height: 30px;
+    margin-bottom: 4px;
+}
+
+.barcode-bar {
+    background: #111;
+    width: 2px;
+}
+
+.barcode-bar.thin { width: 1px; }
+.barcode-bar.thick { width: 3px; }
+.barcode-bar.space { background: transparent; width: 2px; }
+
+.barcode-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .6rem;
+    color: #666;
+    letter-spacing: .1em;
+}
+
+/* 양쪽 무전기 (방 만들기 / 코드 입장) */
+.room-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.radio {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px 18px 12px 12px;
+    padding: 18px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* 안테나 */
+.radio-antenna {
+    position: absolute;
+    top: -26px;
+    right: 28px;
+    width: 10px;
+    height: 28px;
+    background: var(--line);
+    border-radius: 4px 4px 0 0;
+}
+
+.radio-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.radio-tag {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: .7rem;
+    color: var(--mute);
+    letter-spacing: .12em;
+}
+
+/* 표시등 + 로딩 아이콘 */
+.radio-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.radio-spin {
+    color: var(--lcd);
+    font-size: .9rem;
+    line-height: 1;
+    display: inline-block;
+    animation: radioSpin 1s linear infinite;
+}
+
+@keyframes radioSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* 무전기 안내 문구 (액정 밖) */
+.radio-text {
+    font-size: .85rem;
+    color: var(--paper);
+    line-height: 1.6;
+}
+
+.radio-call {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* 신호 표시등 */
+.radio-led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--lcd-dim);
+}
+
+.radio-led.on {
+    background: var(--lcd);
+    box-shadow: 0 0 8px var(--lcd);
+}
+
+.radio-led.blink {
+    animation: wdot .4s infinite;
+}
+
+/* LCD 창 */
+.radio-lcd {
+    background: var(--lcd-bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--lcd);
+    min-height: 66px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.radio-lcd-sub {
+    font-size: .7rem;
+    color: var(--lcd-dim);
+    letter-spacing: .1em;
+}
+
+.radio-lcd-main {
+    font-family: 'Pretendard', sans-serif;
+    font-size: .88rem;
+    line-height: 1.5;
+    word-break: keep-all;
+}
+
+.radio-lcd-main.code {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.3rem;
+    letter-spacing: .3em;
+}
+
+/* 요원 선택 스위치 */
+.life-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+.life-btn {
+    background: var(--ink);
+    border: 1px solid var(--line);
+    color: var(--mute);
+    padding: 9px 12px;
+    border-radius: 4px;
+    font-size: .8rem;
+    font-family: 'Pretendard', sans-serif;
+    cursor: pointer;
+    transition: border-color .15s, color .15s, background .15s;
+}
+
+.life-btn:hover {
+    border-color: var(--mute);
+    color: var(--paper);
+}
+
+.life-btn.selected {
+    border-color: var(--lcd);
+    color: var(--lcd);
+    background: var(--panel);
+}
+
+/* 이름 입력 */
+.radio-input {
+    width: 100%;
+    height: 42px;
+    background: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--paper);
+    padding: 10px 12px;
+    font-size: .95rem;
+    font-family: 'Pretendard', sans-serif;
+    outline: none;
+}
+
+.radio-input:focus {
+    border-color: var(--lcd);
+}
+
+.radio-input:disabled {
+    opacity: .4;
+}
+
+/* 스피커 구멍 */
+.radio-grill {
+    height: 34px;
+    border-radius: 4px;
+    background: repeating-linear-gradient(90deg, var(--line) 0 3px, transparent 3px 9px);
+    opacity: .7;
+    margin-top: auto;
+}
+
+/* 송신 버튼 */
+.radio-ptt {
+    border-radius: 8px;
+}
+
+@keyframes wdot {
+    0%, 100% { opacity: .3; }
+    50% { opacity: 1; }
+}
+
+/* 4칸 방 코드 입력 */
+.code-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.code-box {
+    width: 48px !important;
+    min-width: 48px;
+    max-width: 48px;
+    height: 54px;
+    background: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--paper);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.4rem;
+    text-align: center;
+    text-transform: uppercase;
+    outline: none;
+    caret-color: var(--lcd);
+    transition: border-color .15s;
+    padding: 0;
+}
+
+.code-box:focus {
+    border-color: var(--lcd);
+}
+
+.code-box::placeholder {
+    color: var(--line);
+    font-size: 1.1rem;
+}
+
+.lobby-error {
+    color: var(--lcd);
+    font-size: .8rem;
+    margin-top: 12px;
+    min-height: 1.2em;
+    text-align: center;
+}
+
+/* 반응형 */
+@media (max-width: 560px) {
+    .room-panels {
+        grid-template-columns: 1fr;
+    }
+
+    .id-card-body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .id-card-photo {
+        width: 100px;
+        height: 120px;
+        min-width: 100px;
+    }
+
+    .id-field-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .id-field-age {
+        flex: 1;
+    }
+}

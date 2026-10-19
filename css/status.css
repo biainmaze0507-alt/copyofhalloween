@@ -1,0 +1,138 @@
+/* 현황판 */
+.st-root {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+.st-header {
+    margin-bottom: 24px;
+}
+
+.st-back {
+    display: inline-block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--mute);
+    text-decoration: none;
+    margin-bottom: 18px;
+}
+
+.st-back:hover {
+    color: var(--lcd);
+}
+
+.st-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 6px;
+}
+
+.st-sub,
+.st-note {
+    font-size: 13px;
+    color: var(--mute);
+}
+
+.st-note {
+    margin-top: 14px;
+    font-family: 'Share Tech Mono', 'Pretendard', monospace;
+    font-size: 12px;
+}
+
+/* 지금 통신 중 */
+.st-live {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--lcd-bg);
+    border: 1px solid var(--lcd-dim);
+    border-radius: 2px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    color: var(--lcd);
+    font-size: 14px;
+}
+
+.st-live b {
+    margin-left: auto;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.4rem;
+}
+
+.st-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--lcd);
+    animation: st-blink 1.6s ease-in-out infinite;
+}
+
+@keyframes st-blink {
+    50% { opacity: .2; }
+}
+
+/* 숫자 카드 */
+.st-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.st-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 18px;
+}
+
+.st-label {
+    font-size: 13px;
+    color: var(--mute);
+}
+
+.st-value {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 2rem;
+    color: var(--paper);
+}
+
+.st-live small,
+.st-value small {
+    margin-left: 4px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: .45em;
+    font-weight: 500;
+}
+
+.st-detail {
+    font-size: 12px;
+    color: var(--mute);
+}
+
+/* 남겨진 기록 */
+.st-records {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+}
+
+.st-records-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 6px;
+}
+
+@media (max-width: 520px) {
+    .st-root { padding: 24px 14px 40px; }
+    .st-grid { grid-template-columns: 1fr; }
+}

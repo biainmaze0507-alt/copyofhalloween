@@ -1,0 +1,981 @@
+/* 단말기 화면 전체 */
+.term-root {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* 상단 줄 */
+.term-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 18px;
+}
+
+.term-channel {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .8rem;
+    color: var(--lcd-dim);
+    letter-spacing: .12em;
+}
+
+.term-top-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.term-top .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* 연결 상태 알림 */
+.term-banner {
+    border: 1px solid var(--lcd-dim);
+    background: var(--lcd-bg);
+    color: var(--lcd);
+    font-family: 'Share Tech Mono', 'Pretendard', monospace;
+    font-size: .82rem;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+/* 장면 전환 */
+.scene {
+    display: none;
+}
+
+.scene.active {
+    display: block;
+}
+
+.scene-center {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+}
+
+/* 공용 보조 버튼 */
+.t-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 9px 16px;
+    font-size: .88rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.t-btn:hover:not(:disabled) {
+    border-color: var(--paper);
+}
+
+.t-btn:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+/* 신호 없음 */
+.lost-text {
+    font-family: 'Share Tech Mono', 'Pretendard', monospace;
+    color: var(--lcd);
+    font-size: 1.1rem;
+    letter-spacing: .08em;
+}
+
+.lost-sub {
+    color: var(--mute);
+    font-size: .85rem;
+}
+
+.lost-btn {
+    width: auto;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 대기실 */
+.wait-channel {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .8rem;
+    color: var(--lcd-dim);
+    letter-spacing: .14em;
+    min-height: 1.2em;
+}
+
+.wait-code {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 2.6rem;
+    color: var(--lcd);
+    letter-spacing: .35em;
+    padding-left: .35em;
+    text-shadow: 0 0 10px rgba(255, 154, 31, .45);
+}
+
+.wait-hint {
+    color: var(--mute);
+    font-size: .8rem;
+}
+
+.wait-slots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.wait-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--mute);
+    font-size: .85rem;
+    margin-top: 10px;
+}
+
+.wait-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--lcd);
+    animation: wdot 1.2s infinite;
+}
+
+@keyframes wdot {
+    0%, 100% { opacity: .3; }
+    50% { opacity: 1; }
+}
+
+/* 신분증 (읽기 전용, 해저 신분증 축소판) */
+.tcard {
+    position: relative;
+    width: 300px;
+    max-width: 100%;
+    background: #fff;
+    color: #111;
+    border: 3px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+    transition: transform .8s, filter .8s;
+}
+
+.tcard-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 9px 12px 7px;
+    border-bottom: 2px solid #222;
+}
+
+.tcard-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: .78rem;
+    letter-spacing: .03em;
+}
+
+.tcard-body {
+    display: flex;
+    gap: 12px;
+    padding: 10px 12px;
+}
+
+.tcard-photo {
+    width: 64px;
+    height: 76px;
+    flex: 0 0 64px;
+    border: 2px solid #000;
+    background: #f0f0f0 center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 1.3rem;
+}
+
+.tcard-fields {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.tcard-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: .6rem;
+    color: #333;
+    letter-spacing: .1em;
+}
+
+.tcard-value {
+    font-size: .85rem;
+    font-weight: 600;
+    border-bottom: 2px solid #ccc;
+    padding: 1px 2px 3px;
+    overflow-wrap: anywhere;
+}
+
+.tcard-row {
+    display: flex;
+    gap: 10px;
+}
+
+.tcard-row > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.tcard-row > div:first-child {
+    flex: 0 0 48px;
+}
+
+.tcard-foot {
+    padding: 6px 12px 8px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+.tcard-bars {
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+    height: 20px;
+    margin-bottom: 2px;
+}
+
+.tcard-bars span {
+    background: #111;
+    width: 2px;
+}
+
+.tcard-bars span.thin { width: 1px; }
+.tcard-bars span.thick { width: 3px; }
+.tcard-bars span.space { background: transparent; width: 2px; }
+
+.tcard-code {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .55rem;
+    color: #666;
+    letter-spacing: .1em;
+}
+
+/* 비어 있는 자리 */
+.tcard.empty {
+    background: transparent;
+    border: 1px dashed var(--line);
+    color: var(--mute);
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: .85rem;
+}
+
+/* 떠난 요원의 낡은 신분증 (로비와 동일) */
+.tcard.worn {
+    filter: grayscale(1) contrast(1.05);
+    transform: rotate(-1.6deg);
+    border-color: transparent;
+    clip-path: polygon(0 3%, 7% 0, 22% 2%, 38% 0, 61% 3%, 74% 0, 100% 2%, 98% 30%, 100% 52%, 96% 61%, 100% 74%, 88% 79%, 84% 100%, 60% 96%, 41% 100%, 26% 95%, 9% 100%, 2% 84%, 0 60%, 3% 41%);
+    background:
+        linear-gradient(118deg, transparent 46%, rgba(0, 0, 0, .18) 46.4%, transparent 47.2%),
+        linear-gradient(8deg, transparent 60%, rgba(0, 0, 0, .12) 60.3%, transparent 61%),
+        #d9d9d4;
+}
+
+.tcard.worn .tcard-photo {
+    background-color: transparent;
+}
+
+.tcard.worn .tcard-value {
+    border-bottom-color: #8a8a85;
+}
+
+.tcard .stain {
+    position: absolute;
+    background: #050505;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .8s;
+}
+
+.tcard.worn .stain {
+    opacity: 1;
+}
+
+.tcard .stain.a { width: 70px; height: 50px; right: -14px; bottom: -8px; border-radius: 58% 42% 30% 70% / 60% 35% 65% 40%; }
+.tcard .stain.b { width: 20px; height: 17px; right: 54px; bottom: 14px; border-radius: 50% 60% 40% 55%; }
+.tcard .stain.c { width: 7px; height: 7px; right: 80px; bottom: 34px; border-radius: 50%; }
+.tcard .stain.d { width: 30px; height: 14px; left: -6px; top: 26px; border-radius: 40% 60% 70% 30%; }
+.tcard .stain.e { width: 4px; height: 4px; left: 30px; top: 44px; border-radius: 50%; }
+
+/* 인트로 (검은 화면) */
+.scene-intro.active {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: #000;
+    padding: 64px 16px 24px;
+    overflow-y: auto;
+}
+
+.intro-skip {
+    position: fixed;
+    z-index: 2;
+    top: 18px;
+    right: 18px;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--mute);
+    border-radius: 2px;
+    padding: 5px 10px;
+    font-size: .78rem;
+    cursor: pointer;
+}
+
+.intro-skip:hover {
+    color: var(--paper);
+    border-color: var(--mute);
+}
+
+.intro-card:empty {
+    display: none;
+}
+
+.intro-lines {
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: .98rem;
+    line-height: 1.8;
+    color: var(--paper);
+}
+
+.intro-lines p {
+    opacity: 0;
+    animation: rise .9s ease-out forwards;
+}
+
+.intro-lines p.item {
+    font-size: .9rem;
+    color: var(--mute);
+}
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+}
+
+/* 생자 입력 / 망자 기다림 */
+.setup-form {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.setup-prompt {
+    font-size: 1rem;
+    color: var(--paper);
+    margin-bottom: 6px;
+}
+
+.setup-input {
+    width: 100%;
+    height: 44px;
+    background: #1c1c1c;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--paper);
+    padding: 10px 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    text-align: center;
+    outline: none;
+}
+
+.setup-input:focus {
+    border-color: var(--mute);
+}
+
+.setup-wait {
+    color: var(--mute);
+    font-size: .95rem;
+    animation: wdot 2.4s infinite;
+}
+
+.setup-sub {
+    margin-top: 10px;
+    color: var(--mute);
+    font-size: .8rem;
+    opacity: .6;
+}
+
+/* 단말기 화면 */
+.term-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 34px;
+}
+
+.term-scene-note {
+    color: var(--mute);
+    font-size: .85rem;
+    line-height: 1.7;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.device {
+    position: relative;
+    border: 2px solid var(--paper);
+    background: var(--panel);
+    padding: 16px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.device::before {
+    content: "";
+    position: absolute;
+    right: 22px;
+    top: -24px;
+    width: 8px;
+    height: 22px;
+    background: var(--paper);
+}
+
+.grille {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.grille i {
+    display: block;
+    height: 5px;
+    background: var(--line);
+}
+
+/* 액정 */
+.lcd {
+    position: relative;
+    overflow: hidden;
+    background: var(--lcd-bg);
+    color: var(--lcd);
+    border: 1px solid var(--lcd-dim);
+    font-family: 'Share Tech Mono', 'Pretendard', monospace;
+    padding: 10px 12px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.lcd-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: .75rem;
+    color: var(--lcd-dim);
+    border-bottom: 1px dashed var(--lcd-dim);
+    padding-bottom: 4px;
+}
+
+.lcd-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    text-shadow: 0 0 8px rgba(255, 154, 31, .45);
+}
+
+.lcd-main.big {
+    justify-content: center;
+    font-size: 2.6rem;
+    letter-spacing: .18em;
+    font-weight: 700;
+}
+
+.lcd-main.big.ko {
+    font-size: 1.9rem;
+    letter-spacing: .3em;
+}
+
+.lcd.off .lcd-main {
+    color: var(--lcd-dim);
+    text-shadow: none;
+}
+
+.cells {
+    display: flex;
+    gap: .12em;
+}
+
+.cells span {
+    display: inline-block;
+    width: 1ch;
+    text-align: center;
+}
+
+.amb {
+    min-height: 1.5em;
+    font-size: .88rem;
+    color: var(--paper);
+    font-style: italic;
+}
+
+/* 조작부 */
+.ctl {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ctl-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ctl-label {
+    font-size: .8rem;
+    color: var(--mute);
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.ctl-count {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.ctl-input {
+    width: 100%;
+    background: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--paper);
+    padding: 9px 10px;
+    font-size: .95rem;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+}
+
+.ctl-input:focus {
+    border-color: var(--paper);
+}
+
+.ctl-note {
+    color: var(--mute);
+    font-size: .85rem;
+}
+
+.ctl-warn {
+    font-size: .8rem;
+    color: var(--paper);
+    border-left: 2px solid var(--paper);
+    padding-left: 8px;
+}
+
+.ctl-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ctl-row > button {
+    flex: 1 1 auto;
+}
+
+.ctl-btn {
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid var(--paper);
+    border-radius: 2px;
+    padding: 8px 14px;
+    font-size: .9rem;
+    cursor: pointer;
+}
+
+.ctl-btn.pri {
+    background: var(--paper);
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.ctl-btn:hover:not(:disabled) {
+    filter: brightness(1.15);
+}
+
+.ctl-btn:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+}
+
+.ctl-btn.dash {
+    border-style: dashed;
+    border-color: var(--line);
+    color: var(--mute);
+    font-size: .82rem;
+    padding: 6px 10px;
+}
+
+.ctl-btn.dash:hover:not(:disabled) {
+    color: var(--paper);
+    border-color: var(--mute);
+}
+
+.ctl-section {
+    border-top: 1px dashed var(--line);
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* 떠오르는 생각들 */
+.ideas-title {
+    font-size: .8rem;
+    color: var(--mute);
+    font-style: italic;
+}
+
+.ideas {
+    display: flex;
+    flex-direction: column;
+}
+
+.ideas button {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px dashed var(--line);
+    color: var(--mute);
+    text-align: left;
+    padding: 7px 4px;
+    font-size: .88rem;
+    cursor: pointer;
+}
+
+.ideas button:hover {
+    color: var(--paper);
+}
+
+/* 행동 예시 */
+.acts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.acts button {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--mute);
+    border-radius: 2px;
+    padding: 4px 9px;
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+.acts button:hover {
+    color: var(--paper);
+}
+
+.ctl-error {
+    min-height: 1.2em;
+    font-size: .8rem;
+    color: var(--lcd);
+}
+
+/* 폴터가이스트: 생자 화면 전체 */
+@keyframes flick { 0%, 100% { opacity: 1; } 8% { opacity: .12; } 18% { opacity: .9; } 30% { opacity: .04; } 46% { opacity: 1; } 60% { opacity: .18; } 74% { opacity: .85; } 86% { opacity: .1; } }
+@keyframes shake { 0%, 100% { transform: translate(0, 0); } 10% { transform: translate(-6px, 3px); } 20% { transform: translate(5px, -4px); } 30% { transform: translate(-7px, -2px); } 40% { transform: translate(6px, 4px); } 50% { transform: translate(-4px, 2px); } 60% { transform: translate(7px, -3px); } 70% { transform: translate(-5px, 4px); } 80% { transform: translate(4px, -2px); } 90% { transform: translate(-2px, 1px); } }
+@keyframes jolt { 0%, 100% { transform: translateY(0); } 14% { transform: translateY(12px); } 34% { transform: translateY(-5px); } 56% { transform: translateY(3px); } }
+@keyframes nz { 0% { background-position: 0 0; } 100% { background-position: 7px 37px; } }
+@keyframes hum { 0%, 100% { box-shadow: 0 0 0 0 transparent; } 50% { box-shadow: 0 0 0 6px var(--line); } }
+
+.fx-flicker { animation: flick 1s steps(1); }
+.fx-shake { animation: shake .8s linear; }
+.fx-drop { animation: jolt .45s ease-out; }
+.fx-sound .device { animation: hum .6s ease-in-out 3; }
+
+.fx-noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    opacity: .75;
+    background:
+        repeating-linear-gradient(0deg, var(--paper) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(90deg, transparent 0 11px, var(--mute) 11px 12px);
+    animation: nz .12s steps(3) 8;
+}
+
+/* 통신 기록 */
+.result {
+    border: 1px solid var(--paper);
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.result-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    letter-spacing: .14em;
+    font-size: 1.2rem;
+}
+
+.result-meta {
+    font-family: 'Share Tech Mono', 'Pretendard', monospace;
+    font-size: .8rem;
+    color: var(--mute);
+}
+
+.result-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px 26px;
+}
+
+.rec {
+    list-style: none;
+    border-top: 1px solid var(--line);
+}
+
+.rec li {
+    display: grid;
+    grid-template-columns: 2.4em minmax(0, 1fr);
+    gap: 4px 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.rec-n {
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--mute);
+    font-variant-numeric: tabular-nums;
+}
+
+.rec-q {
+    overflow-wrap: anywhere;
+}
+
+.rec-p {
+    grid-column: 2;
+    font-size: .82rem;
+    color: var(--mute);
+    font-style: italic;
+    overflow-wrap: anywhere;
+}
+
+.rec-a {
+    grid-column: 2;
+    font-family: 'Share Tech Mono', 'Pretendard', monospace;
+    color: var(--lcd);
+    font-weight: 700;
+}
+
+.result-whisper {
+    font-family: 'Share Tech Mono', 'Pretendard', monospace;
+    color: var(--lcd);
+    background: var(--lcd-bg);
+    border: 1px solid var(--lcd-dim);
+    padding: 12px;
+    overflow-wrap: anywhere;
+}
+
+.result-closing {
+    font-family: 'Share Tech Mono', 'Pretendard', monospace;
+    color: var(--mute);
+}
+
+.result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.result-actions .ctl-btn {
+    flex: 1 1 160px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.result-share-note {
+    min-height: 1.2em;
+    margin-top: 8px;
+    font-size: .8rem;
+    color: var(--mute);
+    line-height: 1.6;
+}
+
+.result-back {
+    margin-top: 16px;
+}
+
+/* 남겨진 기록에 남기기 */
+.result-wall {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+}
+
+.wall-title {
+    font-weight: 700;
+    font-size: .95rem;
+}
+
+.wall-picks {
+    list-style: none;
+    border-top: 1px solid var(--line);
+}
+
+.wall-picks label {
+    display: grid;
+    grid-template-columns: 1.4em 2.2em minmax(0, 1fr);
+    align-items: baseline;
+    gap: 6px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: .9rem;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+}
+
+.wall-picks .rec-n {
+    font-size: .85rem;
+}
+
+.wall-whisper {
+    font-family: 'Share Tech Mono', 'Pretendard', monospace;
+    color: var(--lcd);
+    overflow-wrap: anywhere;
+}
+
+.result-wall .ctl-btn {
+    align-self: flex-end;
+}
+
+.wall-code {
+    font-size: .82rem;
+    color: var(--mute);
+}
+
+.wall-code {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.wall-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    font-size: .82rem;
+    padding: 6px 12px;
+}
+
+.wall-code b {
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--paper);
+    letter-spacing: .12em;
+}
+
+/* 망자 한마디 - 행동 공개 허락 */
+.ctl-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .85rem;
+    color: var(--mute);
+    cursor: pointer;
+}
+
+/* 후기 */
+.result-review {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+}
+
+.result-review .ctl-btn {
+    align-self: flex-end;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+@media (max-width: 560px) {
+    .wait-code {
+        font-size: 2rem;
+    }
+
+    .lcd-main.big {
+        font-size: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fx-flicker, .fx-shake, .fx-drop, .fx-sound .device, .fx-noise::after {
+        animation: none;
+    }
+
+    .intro-lines p {
+        animation: none;
+        opacity: 1;
+    }
+}

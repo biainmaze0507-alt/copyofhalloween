@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>망가진 단말기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/lobby.css">
+</head>
+<body>
+<div class="wrap">
+    <header>
+        <h1>누군가의 <span>망가진 단말기</span></h1>
+        <div class="header-actions">
+            <a class="tag" href="tutorial.html">
+                <i class="bi bi-journal-text"></i><span> 게임 안내 </span>
+            </a>
+            <a class="tag" href="status.html">
+                <i class="bi bi-bar-chart-line"></i><span> 기록실 </span>
+            </a>
+        </div>
+    </header>
+
+    <div class="lobby">
+
+        <div class="lobby-notice">
+            <i class="bi bi-broadcast"></i> 10월 31일까지 운영되는 미니사이트입니다. 세계관을 떠나 자유롭게 즐겨주세요.
+        </div>
+
+        <div class="restore-banner hidden" id="restoreBanner">
+            <i class="bi bi-arrow-clockwise"></i> 이전 정보를 불러왔습니다.
+        </div>
+
+        <!-- 신분증 카드 -->
+        <div class="id-card" id="idCard">
+            <div class="id-card-header">
+                <div class="id-card-title">IDENTIFICATION CARD</div>
+            </div>
+
+            <div class="id-card-body">
+                <div class="id-card-photo" id="idPhoto">
+                    <span class="id-card-photo-placeholder" id="photoPlaceholder">
+                        <i class="bi bi-person-bounding-box"></i>
+                        <small>이미지 선택</small>
+                    </span>
+                </div>
+                <input type="file" id="imageFile" accept="image/*" hidden>
+
+                <div class="id-card-fields">
+                    <div class="id-field">
+                        <div class="id-field-label">NAME</div>
+                        <input class="id-field-input" id="myName" maxlength="10" placeholder="이름 입력">
+                    </div>
+                    <div class="id-field-row">
+                        <div class="id-field id-field-age">
+                            <div class="id-field-label">AGE</div>
+                            <input class="id-field-input" id="myAge" inputmode="numeric" maxlength="3" placeholder="나이">
+                        </div>
+                        <div class="id-field id-field-birthday">
+                            <div class="id-field-label">BIRTHDAY</div>
+                            <input class="id-field-input" id="myBirthday" maxlength="10" placeholder="10/21">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="id-card-footer">
+                <div class="barcode" id="barcode"></div>
+                <div class="barcode-text" id="barcodeText">SYNC-00000</div>
+            </div>
+
+            <!-- 떠난 요원 선택 시 보이는 얼룩 -->
+            <i class="stain a"></i>
+            <i class="stain b"></i>
+            <i class="stain c"></i>
+            <i class="stain d"></i>
+            <i class="stain e"></i>
+        </div>
+
+        <div class="lobby-note">
+            <i class="bi bi-info-circle"></i> 이미지, 나이, 생일은 비워두어도 됩니다.
+        </div>
+
+        <!-- 방 만들기 / 코드 입장 (무전기) -->
+        <div class="room-panels">
+            <div class="radio" id="createRadio">
+                <span class="radio-antenna"></span>
+                <div class="radio-top">
+                    <span class="radio-tag">NEW ROOM</span>
+                    <span class="radio-status">
+                        <i class="bi bi-arrow-repeat radio-spin hidden" id="createSpin"></i>
+                        <span class="radio-led" id="createLed"></span>
+                    </span>
+                </div>
+
+                <div class="radio-lcd" id="createLcd">
+                    <div class="radio-lcd-sub" id="createLcdSub">CH ---.-- MHz</div>
+                    <div class="radio-lcd-main" id="createLcdMain">응답 없음</div>
+                </div>
+
+                <p class="radio-text">당신은 상대방을</p>
+                <div class="life-buttons" id="lifeButtons">
+                    <button class="life-btn" type="button" data-life="LIVING">떠나보냈다</button>
+                    <button class="life-btn" type="button" data-life="DEAD">떠났다</button>
+                </div>
+
+                <div class="radio-call hidden" id="callBox">
+                    <p class="radio-text" id="callPrompt"></p>
+                    <input class="radio-input" id="partnerName" maxlength="10" placeholder="이름 입력" autocomplete="off">
+                </div>
+
+                <div class="radio-grill"></div>
+
+                <button class="btn radio-ptt hidden" id="createBtn" type="button" disabled>
+                    <i class="bi bi-mic" id="createBtnIcon"></i> <span id="createBtnText">그의 이름을 부른다</span>
+                </button>
+            </div>
+
+            <div class="radio" id="joinRadio">
+                <span class="radio-antenna"></span>
+                <div class="radio-top">
+                    <span class="radio-tag">JOIN ROOM</span>
+                    <span class="radio-status">
+                        <i class="bi bi-arrow-repeat radio-spin hidden" id="joinSpin"></i>
+                        <span class="radio-led" id="joinLed"></span>
+                    </span>
+                </div>
+
+                <div class="radio-lcd" id="joinLcd">
+                    <div class="radio-lcd-sub" id="joinLcdSub">CH ---.-- MHz</div>
+                    <div class="radio-lcd-main" id="joinLcdMain">응답 없음</div>
+                </div>
+
+                <p class="radio-text">받은 코드를 입력하세요.</p>
+                <div class="code-boxes" id="codeBoxes">
+                    <input class="code-box" type="text" maxlength="1" placeholder="·">
+                    <input class="code-box" type="text" maxlength="1" placeholder="·">
+                    <input class="code-box" type="text" maxlength="1" placeholder="·">
+                    <input class="code-box" type="text" maxlength="1" placeholder="·">
+                </div>
+
+                <div class="radio-grill"></div>
+
+                <button class="btn radio-ptt" id="joinBtn" type="button" disabled>
+                    <i class="bi bi-broadcast"></i> 주파수를 맞춘다
+                </button>
+            </div>
+        </div>
+
+        <div id="lobbyError" class="lobby-error"></div>
+    </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/lobby.js"></script>
+</body>
+</html>

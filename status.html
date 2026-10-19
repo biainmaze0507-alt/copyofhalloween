@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기록실 - 망가진 단말기</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/status.css">
+  <link rel="stylesheet" href="css/records.css">
+</head>
+<body>
+<div class="st-root">
+
+  <div class="st-header">
+    <a class="st-back" href="index.html"><i class="bi bi-chevron-left"></i> 돌아가기</a>
+    <div class="st-title">기록실</div>
+    <div class="st-sub">AI S.H.E.E.P이 집계한 인증되지 않은 단말기 연결 현황과 남겨진 기록입니다.</div>
+  </div>
+
+  <div class="st-live">
+    <span class="st-dot"></span>
+    <span>현재 확인되는 비인가 단말기</span>
+    <b><span id="liveCount">-</span><small>개</small></b>
+  </div>
+
+  <div class="st-grid">
+    <div class="st-card">
+      <span class="st-label">인증되지 않은 연결 기록</span>
+      <b class="st-value"><span id="sessionCount">-</span><small>건</small></b>
+    </div>
+    <div class="st-card">
+      <span class="st-label">열람 가능 기록</span>
+      <b class="st-value"><span id="wallCount">-</span><small>건</small></b>
+      <span class="st-detail" id="wallDetail"></span>
+    </div>
+  </div>
+
+  <p class="st-note" id="updatedAt"></p>
+
+  <!-- 남겨진 기록 (열람 코드를 넣으면 아래가 열림) -->
+  <section class="st-records" id="records">
+    <div class="st-records-head">
+      <div class="st-records-title">열람실</div>
+      <div class="st-sub">남겨진 이와 떠나간 이가 서로의 마음에 품은 기억. 누구의 기억인지는 알 수 없다.</div>
+    </div>
+
+    <!-- 열람 코드 -->
+    <form class="rec-lock" id="lockForm" autocomplete="off">
+      <label class="rec-note" for="codeInput">열람 코드를 입력하세요. 열람 코드는 플레이 결과 하단에 있습니다.</label>
+      <div class="rec-lock-row">
+        <input class="rec-input" id="codeInput" type="text" maxlength="20">
+        <button class="rec-btn" type="submit"><i class="bi bi-unlock"></i> 열람</button>
+      </div>
+      <p class="rec-error" id="lockError"></p>
+    </form>
+
+    <div class="hidden" id="recordsBody">
+      <!-- 무작위 -->
+      <section class="rec-section">
+        <div class="rec-section-head">
+          <span class="rec-section-title">누군가의 마지막 기록 </span>
+          <button class="rec-btn small" id="shuffleBtn" type="button"><i class="bi bi-arrow-repeat"></i> 다른 기록 살펴보기</button>
+        </div>
+        <div class="rec-random" id="randomList"></div>
+      </section>
+
+      <!-- 전체 -->
+      <section class="rec-section">
+        <div class="rec-section-head">
+          <span class="rec-section-title">모든 기록</span>
+          <div class="rec-tabs">
+            <button class="rec-tab active" type="button" data-type="WHISPER">마지막 한마디</button>
+            <button class="rec-tab" type="button" data-type="QUESTION">질문과 답변</button>
+          </div>
+        </div>
+        <div class="rec-list" id="allList"></div>
+        <p class="rec-note hidden" id="allEmpty">아직 남겨진 기록이 없습니다.</p>
+        <nav class="rec-pager" id="pager" aria-label="쪽 이동"></nav>
+      </section>
+    </div>
+  </section>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/status.js"></script>
+<script src="js/records.js"></script>
+</body>
+</html>

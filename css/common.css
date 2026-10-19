@@ -1,0 +1,192 @@
+/* 색상·글꼴 변수 */
+:root {
+    --ink: #0a0a0a;
+    --panel: #131313;
+    --line: #3b3b3b;
+    --mute: #8d8d8d;
+    --paper: #f1f1ee;
+    --lcd: #ff9a1f;
+    --lcd-dim: #8a5210;
+    --lcd-bg: #170d02;
+
+    --sans: 'Pretendard', -apple-system, sans-serif;
+    --mono: 'Share Tech Mono', 'Nanum Gothic Coding', ui-monospace, monospace;
+    --label: 'Rajdhani', 'Pretendard', sans-serif;
+}
+
+/* 리셋 + 기본 */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    min-height: 100%;
+}
+
+body {
+    padding: 20px 16px 60px;
+}
+
+/* 공용 레이아웃 */
+.wrap {
+    max-width: 1060px;
+    margin: 0 auto;
+}
+
+/* 헤더 */
+header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+}
+
+header h1 {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: .06em;
+    color: var(--paper);
+}
+
+header h1 span {
+    color: var(--lcd);
+}
+
+.tag {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: .74rem;
+    color: var(--mute);
+    border: 1px solid var(--line);
+    padding: 3px 8px;
+    border-radius: 2px;
+    letter-spacing: .08em;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* 공용 입력 */
+.field {
+    margin-bottom: 14px;
+}
+
+.field label {
+    display: block;
+    font-size: .76rem;
+    letter-spacing: .08em;
+    color: var(--mute);
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    height: 42px;
+    background: var(--ink);
+    border: 1px solid var(--line);
+    color: var(--paper);
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: .95rem;
+    font-family: inherit;
+}
+
+.field input:focus,
+.field select:focus {
+    outline: 2px solid var(--lcd);
+    outline-offset: 1px;
+}
+
+/* 공용 버튼 */
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.btn {
+    background: var(--paper);
+    color: var(--ink);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: .95rem;
+    width: 100%;
+    letter-spacing: .04em;
+}
+
+.btn:hover {
+    filter: brightness(1.1);
+}
+
+.btn:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+    filter: none;
+}
+
+.btn.ghost {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--paper);
+}
+
+/* 공용 패널 */
+.panelbox {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+}
+
+.panelbox h3 {
+    font-family: 'Pretendard', sans-serif;
+    font-size: .74rem;
+    letter-spacing: .14em;
+    color: var(--lcd);
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* 오버레이 공용 */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .88);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 10;
+}
+
+/* 반응형 */
+.two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+@media (max-width: 560px) {
+    .two {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

@@ -1,0 +1,213 @@
+/* 남겨진 기록 (현황판 아래) */
+.hidden {
+    display: none !important;
+}
+
+.rec-sub,
+.rec-note {
+    font-size: 13px;
+    color: var(--mute);
+    line-height: 1.7;
+}
+
+.rec-error {
+    min-height: 1.2em;
+    font-size: 13px;
+    color: var(--lcd);
+}
+
+/* 열람 코드 */
+.rec-lock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 20px 22px;
+}
+
+.rec-lock-row {
+    display: flex;
+    gap: 8px;
+}
+
+.rec-input {
+    flex: 1;
+    background: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--paper);
+    padding: 9px 10px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.rec-input:focus {
+    border-color: var(--paper);
+}
+
+/* 버튼 */
+.rec-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid var(--paper);
+    border-radius: 2px;
+    padding: 8px 14px;
+    font-family: inherit;
+    font-size: .9rem;
+    cursor: pointer;
+}
+
+.rec-btn.small {
+    padding: 4px 10px;
+    font-size: .8rem;
+    border-color: var(--line);
+    color: var(--mute);
+}
+
+.rec-btn:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+}
+
+/* 섹션 */
+.rec-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.rec-section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 8px;
+}
+
+.rec-section-title {
+    font-family: 'Share Tech Mono', 'Pretendard', monospace;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--lcd);
+}
+
+.rec-tabs {
+    display: flex;
+    gap: 6px;
+}
+
+.rec-tab {
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--mute);
+    font-family: inherit;
+    font-size: .8rem;
+    padding: 4px 10px;
+    cursor: pointer;
+}
+
+.rec-tab.active {
+    border-color: var(--paper);
+    color: var(--paper);
+}
+
+/* 기록 한 장 */
+.rec-random,
+.rec-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rec-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 14px 16px;
+    overflow-wrap: anywhere;
+}
+
+.rec-card.whisper {
+    font-family: 'Share Tech Mono', 'Pretendard', monospace;
+    color: var(--lcd);
+    background: var(--lcd-bg);
+    border-color: var(--lcd-dim);
+}
+
+.rec-q {
+    color: var(--paper);
+    font-size: .95rem;
+}
+
+.rec-p {
+    display: block;
+    margin-top: 4px;
+    font-size: .82rem;
+    font-style: italic;
+    color: var(--mute);
+}
+
+.rec-a {
+    display: block;
+    margin-top: 6px;
+    font-family: 'Share Tech Mono', 'Pretendard', monospace;
+    font-weight: 700;
+    color: var(--lcd);
+}
+
+/* 몇 번째 기록인지 */
+.rec-no {
+    display: block;
+    margin-bottom: 6px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .75rem;
+    font-style: normal;
+    color: var(--mute);
+    letter-spacing: .08em;
+}
+
+.rec-card.whisper .rec-no {
+    color: var(--lcd-dim);
+}
+
+/* 쪽 이동 */
+.rec-pager {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+}
+
+.rec-page {
+    min-width: 2.2em;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--mute);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .85rem;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.rec-page.active {
+    border-color: var(--paper);
+    color: var(--paper);
+}
+
+.rec-page:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+}

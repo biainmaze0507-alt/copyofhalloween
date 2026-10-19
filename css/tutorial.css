@@ -1,0 +1,329 @@
+/* 게임 안내 - 한 페이지 + 탭 (게임 방법 / 세계관 / 설정) */
+.tut-root {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+/* 헤더 */
+.tut-header {
+    margin-bottom: 24px;
+}
+
+.tut-back {
+    display: inline-block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--mute);
+    text-decoration: none;
+    margin-bottom: 18px;
+}
+
+.tut-back:hover {
+    color: var(--lcd);
+}
+
+.tut-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 6px;
+}
+
+.tut-sub {
+    font-size: 13px;
+    color: var(--mute);
+}
+
+/* S.H.E.E.P 인사말 */
+.sheep-intro {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--lcd-dim);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+
+.sheep-tag {
+    display: block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--lcd);
+    margin-bottom: 8px;
+}
+
+.sheep-intro p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--mute);
+}
+
+.sheep-intro .text-mute {
+    font-size: 11.5px;
+    color: #5c5c5c;
+    margin-top: 2px;
+}
+
+.sheep-intro em {
+    font-style: normal;
+    color: var(--lcd);
+}
+
+/* 탭 */
+.tut-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.tut-tab {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--mute);
+    font-family: inherit;
+    font-size: 13px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.tut-tab:hover {
+    color: var(--paper);
+}
+
+.tut-tab.active {
+    border-color: var(--lcd-dim);
+    color: var(--lcd);
+}
+
+/* 섹션 */
+.tut-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.tut-section.hidden {
+    display: none;
+}
+
+/* 카드 */
+.tut-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 20px 22px;
+}
+
+.tut-card.warn {
+    border-left: 3px solid var(--lcd);
+}
+
+.tut-card-tag {
+    font-family: 'Share Tech Mono', 'Pretendard', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--mute);
+    margin-bottom: 10px;
+}
+
+.tut-card-tag.warn {
+    color: var(--lcd);
+}
+
+.tut-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--paper);
+}
+
+.tut-card-subtitle {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--mute);
+    margin-top: 4px;
+}
+
+.tut-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.tut-card-body p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--paper);
+}
+
+.tut-card-body em {
+    font-style: normal;
+    color: var(--lcd);
+}
+
+.tut-card-body .tut-indent {
+    padding-left: 16px;
+    font-size: 13.5px;
+    color: var(--mute);
+}
+
+/* 단말기를 켠다 */
+.tut-start {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    padding: 10px 18px;
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.tut-start:hover {
+    filter: brightness(1.1);
+}
+
+/* 설정 - 소리 */
+.set-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+}
+
+.set-row:first-of-type {
+    border-top: none;
+}
+
+.set-label {
+    min-width: 6em;
+}
+
+/* 세계관 - 다른 시리즈 안내 */
+.world-more {
+    text-align: right;
+    font-size: 12px;
+    color: var(--mute);
+}
+
+.world-more a {
+    color: var(--mute);
+}
+
+/* 설정 - 후기·오류 제보 */
+.set-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.set-types {
+    display: flex;
+    gap: 6px;
+}
+
+.set-type {
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--mute);
+    font-family: inherit;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.set-type.active {
+    border-color: var(--paper);
+    color: var(--paper);
+}
+
+.set-note {
+    font-size: 13px;
+    color: var(--mute);
+}
+
+.set-note.hidden {
+    display: none;
+}
+
+.set-input {
+    width: 100%;
+    background: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--paper);
+    padding: 9px 10px;
+    font-size: .95rem;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+}
+
+.set-input:focus {
+    border-color: var(--paper);
+}
+
+.set-input.hidden,
+.set-send.hidden,
+.set-types.hidden {
+    display: none;
+}
+
+.set-send {
+    align-self: flex-end;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid var(--paper);
+    border-radius: 2px;
+    padding: 8px 14px;
+    font-family: inherit;
+    font-size: .9rem;
+    cursor: pointer;
+}
+
+.set-send:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+}
+
+/* 설정 - 출처 */
+.credit-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--paper);
+}
+
+.credit-list a {
+    color: var(--paper);
+}
+
+.credit-list span {
+    display: inline-block;
+    min-width: 4.5em;
+    color: var(--mute);
+}
+
+/* 좁은 화면 */
+@media (max-width: 700px) {
+    .tut-root { padding: 24px 14px 40px; }
+    .tut-card { padding: 16px; }
+    .tut-tab { flex: 1 1 auto; padding: 8px 10px; }
+}

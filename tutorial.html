@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게임 안내 - 망가진 단말기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/tutorial.css">
+</head>
+<body>
+<div class="tut-root">
+
+    <div class="tut-header">
+        <a class="tut-back" href="index.html"><i class="bi bi-chevron-left"></i> 돌아가기</a>
+        <div class="tut-title">게임 안내</div>
+        <div class="tut-sub">연결될 리 없는 단말기에 신호가 잡혔습니다.</div>
+    </div>
+
+    <!-- S.H.E.E.P 인사말 -->
+    <div class="sheep-intro">
+        <span class="sheep-tag">AI S.H.E.E.P</span>
+        <p>인증되지 않은 단말기 연결이 감지되었습니다.</p>
+        <p class="text-mute">세계관의 이해는 게임 진행에 영향을 미치지 않습니다.</p>
+        <p class="text-mute">세계관을 벗어나 자유롭게 활용해도 좋습니다.</p>
+    </div>
+
+    <!-- 탭 -->
+    <div class="tut-tabs" role="tablist">
+        <button class="tut-tab active" type="button" data-tab="howto">게임 방법</button>
+        <button class="tut-tab" type="button" data-tab="world">세계관</button>
+        <button class="tut-tab" type="button" data-tab="settings">설정</button>
+    </div>
+
+    <!-- 게임 방법 -->
+    <section class="tut-section" id="section-howto">
+        <div class="tut-card">
+            <div class="tut-card-tag"><i class="bi bi-activity"></i> 01</div>
+            <div class="tut-card-title">망가진 단말기</div>
+            <div class="tut-card-body">
+                <p>그 사람과 이어져 있던 단말기는 그의 죽음 이후 오래전에 회선이 끊겼습니다.</p>
+                <p>본래는 처분해야 했지만, 당신은 상대방의 죽음을 받아들이지 못한 채 몰래 지니고 다녔습니다.</p>
+                <p>하염없이 그 사람을 그리워하던 어느 날, 연결될 리 없는 단말기에 신호가 잡힙니다.</p>
+            </div>
+        </div>
+        <div class="tut-card">
+            <div class="tut-card-tag"><i class="bi bi-activity"></i> 02</div>
+            <div class="tut-card-title">생존자(그리워 하는 사람)</div>
+            <div class="tut-card-body">
+                <p>어떤 이유로든, 죽은 사람을 잊지 못한 사람입니다.</p>
+                <p>단말기를 통해 질문을 전달할 수 있으며, 질문은 모두 <em>10번</em>가능합니다.</p>
+                <p>직접 질문을 적거나, 떠오르는 생각들 중 원하는 질문을 골라 다듬을 수 있습니다.</p>
+            </div>
+        </div>
+        <div class="tut-card">
+            <div class="tut-card-tag"><i class="bi bi-activity"></i> 03</div>
+            <div class="tut-card-title">사망자(떠나야 하는 사람)</div>
+            <div class="tut-card-body">
+                <p>모종의 사건으로 세상을 떠난 사람입니다.</p>
+                <p>죽었다는 설정 외에는 자유롭게 정해도 좋습니다.</p>
+                <p>상대방의 질문에 <em>YES, NO, 반응없음</em>으로만 답할 수 있습니다.</p>
+                <p>그 밖의 일은...</p>
+            </div>
+        </div>
+        <div class="tut-card">
+            <div class="tut-card-tag"><i class="bi bi-activity"></i> 04</div>
+            <div class="tut-card-title">접속 방법</div>
+            <div class="tut-card-body">
+                <p>1. 한 명이 방을 만들고, 생존자(떠나보냈다)와 사망자(떠났다) 중 하나를 고릅니다.</p>
+                <p>2. 화면에 뜬 4자리 코드를 상대방에게 전달합니다.</p>
+                <p>3. 상대방이 JOIN ROOM에 코드를 입력해 입장합니다.</p>
+                <p>* 상대방의 포지션은 방을 만들 때 입력한 설정에 따라 자동으로 결정됩니다.</p>
+            </div>
+        </div>
+        <a class="tut-start" href="index.html"><i class="bi bi-broadcast"></i> 단말기를 손에 쥔다</a>
+    </section>
+
+    <!-- 세계관 (요약) -->
+    <section class="tut-section hidden" id="section-world">
+        <div class="tut-card">
+            <div class="tut-card-tag"><i class="bi bi-activity"></i> 기초 사회 정보를 호출합니다 . . . . . .</div>
+            <div class="tut-card-title">초과학 문명과 동조 기술</div>
+            <div class="tut-card-body">
+                <p>21XX년, 세계는 <em>초과학 문명</em>을 이룩하였습니다.</p>
+                <p>세계의 뒷편에서는 타인의 감정과 신경을 동기화하는 <em>동조 기술</em>이 개발되어,<br>무기보다 동료와의 유대관계와 정신적 호환성이 전투에서 크게 자리잡게 되었습니다.</p>
+                <p>당신은 <em>SYNC</em> 소속의 유능한 요원이며, 당신에게는 당신만큼이나 유능한 <em>파트너가 있었습니다.</em></p>
+                <p></p>
+            </div>
+        </div>
+        <div class="tut-card">
+            <div class="tut-card-tag"><i class="bi bi-activity"></i> 기관에 대한 정보를 호출합니다 . . . . . .</div>
+            <div class="tut-card-title">S.Y.N.C</div>
+            <div class="tut-card-subtitle">System for Yoked Neuro-Cognition</div>
+            <div class="tut-card-body">
+                <p>심리 동조 시스템을 개발·연구하고, 시스템을 적용한 요원들을 관리하는 기관입니다.</p>
+                <p>요원들은 인공지능의 동조율 평가를 바탕으로 다른 요원과 <em>파트너</em>를 맺고, 2인 1조로 임무에 투입됩니다.</p>
+                <p>요원은 <em>F~S등급</em>을 부여받으며, F~D등급은 신입, A~S등급은 다년차 베테랑입니다. 회사의 직위와 비슷합니다.</p>
+                <p>(이번 플레이에는 영향을 주지 않습니다.)</p>
+            </div>
+        </div>
+        <div class="tut-card">
+            <div class="tut-card-tag"><i class="bi bi-activity"></i> 포지션 정보를 호출합니다 . . . . . .</div>
+            <div class="tut-card-title">오퍼레이터와 트리거</div>
+            <div class="tut-card-body">
+                <p><em>오퍼레이터(OPERATOR)</em> 지휘팀. 정보를 수집하고 전략을 세우며, 트리거의 전투를 보조합니다.</p>
+                <p><em>트리거(TRIGGER)</em> 현장팀. 오퍼레이터의 전략을 바탕으로 현장에 투입되어 임무를 직접 수행합니다.</p>
+            </div>
+        </div>
+        <div class="tut-card">
+            <div class="tut-card-tag"><i class="bi bi-activity"></i> 요원 관리 규정을 호출합니다 . . . . . .</div>
+            <div class="tut-card-title">요원의 사망</div>
+            <div class="tut-card-body">
+                <p>요원이 임무 중 사망하면, 기관은 <em>48시간 안에</em> 사망 처리를 마칩니다.</p>
+                <p>남은 요원은 짧은 심리 평가를 거쳐 <em>새로운 파트너</em>를 배정받습니다.</p>
+                <p>SYNC의 존재는 세상에 알려져 있지 않습니다. 그러니 요원의 죽음 또한 <em>외부에 공표되지 않습니다.</em></p>
+                <p>장례도, 부고도, 기사 한 줄도 없이 모든 절차는 기관 안에서만 조용히 처리됩니다.</p>
+                <p>사망 사유는 <em>기밀</em>로 분류되며, 가족에게조차 사고나 병으로 위장된 사유가 전해지곤 합니다.</p>
+                <p>그 사람이 왜, 어떻게 죽었는지는 기관과 <em>파트너</em>만 알고 있습니다.</p>
+            </div>
+        </div>
+        <div class="tut-card">
+            <div class="tut-card-tag"><i class="bi bi-activity"></i> 장비 관리 규정을 호출합니다 . . . . . .</div>
+            <div class="tut-card-title">전용 단말기</div>
+            <div class="tut-card-body">
+                <p>파트너를 맺은 두 요원에게는 서로만 연결되는 <em>전용 단말기</em>가 한 쌍 지급됩니다.</p>
+                <p>단말기는 동조 회선을 그대로 이어 받아, 멀리 떨어진 임무 중에도 서로의 상태를 전합니다.</p>
+                <p>파트너 한 명이 사망하면 회선은 끊기고, 남은 단말기는 <em>7일 안에 기관에 반납</em>해야 합니다.</p>
+                <p>반납된 단말기는 기록을 지운 뒤 다음 파트너에게 다시 지급됩니다.</p>
+                <p>반납하지 않은 단말기는 <em>분실</em>로 처리됩니다.</p>
+            </div>
+        </div>
+        <div class="tut-card">
+            <div class="tut-card-tag"><i class="bi bi-activity"></i> 연구 기록을 호출합니다 . . . . . .</div>
+            <div class="tut-card-title">SYNC 연구부서의 기록</div>
+            <div class="tut-card-body">
+                <p>[ 문서 번호 ] TD-1031-07<br>
+                    [ 분류 ] 대외비 | 열람 제한<br>
+                    [ 작성 ] 연구부 제■연구실</p>
+
+                <p><em>1. 개요</em><br>
+                    파트너 사망 이후, 해제된 동조 회선에서 파트너의 신호를 수신했다는 요원의 보고가 지속적으로 접수되고 있음.</p>
+
+                <p><em>2. 현황</em><br>
+                    - 보고 요원 대부분은 사망한 파트너와 장기간 동조를 유지한 이력이 있음.<br>
+                    - 다수가 회수 대상인 전용 단말기를 반납하지 않은 상태였음.<br>
+                    - 보고 시기가 매년 <em>10월 말</em>에 집중됨.</p>
+
+                <p><em>3. 판단</em><br>
+                    해당 현상은 남은 요원의 뇌에 새겨진 동조 신호가 만들어 내는 잔향, 즉 착각으로 분류함.<br>
+                    실제 신호 여부는 확인되지 않음.</p>
+
+                <p><em>4. 조치</em><br>
+                    - 보고 요원의 심리 평가 재실시 및 단말기 회수<br>
+                    - 10월 말 보고 집중 원인은 <em>추가 조사 대상에서 제외</em>함.</p>
+
+                <p>※ 본 문서는 기관 외부로 반출할 수 없음.</p>
+            </div>
+        </div>
+        <p class="world-more">상세한 세계관을 보고 싶다면 <a href="https://www.postype.com/@commudduelrae" target="_blank" rel="noopener">다른 시리즈</a>를 참고해주세요.</p>
+    </section>
+
+    <!-- 설정 -->
+    <section class="tut-section hidden" id="section-settings">
+        <div class="tut-card">
+            <div class="tut-card-tag"><i class="bi bi-sliders"></i> 소리</div>
+            <div class="set-row">
+                <span class="set-label">▶ 효과음</span>
+                <button class="tag" id="soundBtn" type="button"><i class="bi bi-volume-up-fill"></i><span> 효과음이 켜져있습니다</span></button>
+            </div>
+        </div>
+
+        <div class="tut-card">
+            <div class="tut-card-tag"><i class="bi bi-envelope-paper"></i> 후기/오류 제보</div>
+            <form class="set-form" id="reportForm" autocomplete="off">
+                <div class="set-types">
+                    <button class="set-type active" type="button" data-type="REVIEW"><i class="bi bi-chat-left-text"></i> 후기</button>
+                    <button class="set-type" type="button" data-type="BUG"><i class="bi bi-bug"></i> 오류 제보</button>
+                </div>
+                <label class="set-note" for="reportInput" id="reportLabel">남겨 주신 후기는 제작자에게만 전해집니다.</label>
+                <textarea class="set-input" id="reportInput" rows="5" maxlength="2000"></textarea>
+                <button class="set-send" id="reportBtn" type="submit" disabled><i class="bi bi-send"></i> 보내기</button>
+                <p class="set-note hidden" id="reportNote"></p>
+            </form>
+        </div>
+
+        <div class="tut-card">
+            <div class="tut-card-tag"><i class="bi bi-bookmark"></i> 출처</div>
+            <ul class="credit-list">
+                <li><span>효과음</span><a href="https://soundeffect-lab.info/" target="_blank" rel="noopener">효과음 라보 (soundeffect-lab.info)</a></li>
+                <li><span>글꼴</span>Pretendard (OFL), Rajdhani, Share Tech Mono (Google Fonts, OFL)</li>
+                <li><span>아이콘</span>Bootstrap Icons (MIT)</li>
+                <li><span>제작</span>물랑 (<a href="https://x.com/mulang_trpg" target="_blank" rel="noopener">@MULANG_TRPG</a>) | <a href="https://www.postype.com/@commudduelrae" target="_blank" rel="noopener">포스타입 바로가기</a></li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/tutorial.js"></script>
+</body>
+</html>
